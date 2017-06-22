@@ -4,48 +4,20 @@ layout: default
 
 <div class="page clearfix" index>
     <div class="left">
-        <h1>Welcome to HyG's Blog!</h1>
-        <small>这里记录着我的前端学习之路</small>
+        <h1>Welcome!</h1>
+        <small>这里记录着我学习的收获和感悟，对于学习，怎敢停下来。</small>
         <hr>
         <ul>
             {% for post in paginator.posts %}
-              <li>
-                <h2>
-                  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>{{ post.date | date: "%F" }}
-                    </div>
-                    <div class="label-card">
-                        {% if post.author %}<i class="fa fa-user"></i>{{ post.author }}
-                        {% endif %}
-                    </div>
-                    <div class="label-card">
-                        {% if page.meta %}<i class="fa fa-key"></i>{{ page.meta }}  {% endif %}
-                    </div>
-
-                    <div class="label-card">
-                    {% include category.html %}
-                    </div>
-
-                    <div class="label-card">
-                    {% include tag.html %}
-                    </div>
-                </div>
-                <div class="excerpt">
-                    {{post.excerpt}}
-                </div>
-                <div class="read-all">
-                    <a  href="{{ post.url | prepend: site.baseurl }}"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
+               <li>
+                 <span>
+                    <time>{{ post.date | date:"%F" }} {{ post.date | date: "%a" }}. &raquo;</time>  
+                    <a class="title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                 </span>
+               </li>
             {% endfor %}
         </ul>
-
-
-
+     
         <!-- Pagination links -->
         <div class="pagination">
           {% if paginator.previous_page %}
@@ -65,21 +37,33 @@ layout: default
           {% endif %}
         </div>
     </div>
-    <!-- <button class="anchor"><i class="fa fa-anchor"></i></button> -->
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
     <div class="right">
         <div class="wrap">
             <div class="side">
-                <div>
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                    Recent Posts
+                <div class="profile">
+                    <br>
+                    I'm {{site.my-name}}.
+                    <br>
+                    &
+                    <br>
+                    当一个练习人
+                    <br><br>
+                    {% if site.github_username %}
+                    <a href="https://github.com/{{site.github_username}}" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a> 
+                    {% endif %} 
+                    {% if site.email %}
+                    <a href="mailto:{{site.email}}" title="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a> 
+                    {% endif %} 
+                    {% if site.weibo_username %}
+                    <a href="http://weibo.com/{{site.weibo_username}}" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a> 
+                    {% endif %} 
+                    {% if site.zhihu_username %}
+                    <a href="https://www.zhihu.com/people/{{site.zhihu_username}}" title="Zhihu"><i class="iconfont icon-daoruzhihu"></i></a> 
+                    {% endif %} 
                 </div>
-                <ul class="content-ul" recent>
-                    {% for post in site.posts offset: 0 limit: 10  %}
-                        <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-                    {% endfor %}
-                </ul>
             </div>
-
+            
             <!-- Content -->
             <div class="side ">
                 <div>
@@ -152,7 +136,8 @@ layout: default
                 <ul  class="content-ul">
 
                 </ul>
-            </div> -->
+            </div>
+            -->
         </div>
     </div>
 </div>

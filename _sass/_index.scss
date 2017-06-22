@@ -1,10 +1,8 @@
 .page[index] {
     a {
-        color: #4d6dad;
+        color: #00a;
         transition: 0.5s ease;
-        &:hover {
-            color: #223253;
-        }
+        
     }
     .left {
         >ul {
@@ -46,14 +44,21 @@
                         font-size: 20px;
                     }
                 }
+                a{
+                    color: #00a;
+                    transition: 0.2s ease;
+                    &:hover {
+                        color: black;
+                    }
+                 }
                 .read-all {
                     text-align: right;
                     font-size: 14px;
                     a {
-                        color: #778ab0;
+                        color: #00a;
                         transition: 0.2s ease;
                         &:hover {
-                            color: #5872a7;
+                            color: #aaa;
                         }
                         i {
                             padding-right: 3px;
@@ -82,8 +87,15 @@
             .side {
                 margin-bottom: 20px;
                 padding-bottom: 0;
+                
                 i {
                     margin-right: 3px;
+                }
+                .profile {
+                    font-size: 20px;
+                    text-align: center;
+                    color: #00a;
+                    font-weight:800;
                 }
                 .content-ul[cate] {
                     overflow: hidden;
@@ -127,14 +139,7 @@
                             border: none;
                         }
                     }
-                }
-                .content-ul[recent]{
-                    padding-bottom: 16px;
-                    li{
-                        color:#aaa;
-                        font-size: 14px;
-                    }
-                }
+                }             
                 .tags-cloud {
                     font-weight: normal;
                     a {

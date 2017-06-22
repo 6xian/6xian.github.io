@@ -26,14 +26,11 @@ type: page
               {% endif %}
             {% endunless %}
 
-            <li>
-                <time>
-                {{ post.date | date:"%F" }} {{ post.date | date: "%a" }}.
-                </time>
+            <li>            
+              <span>
+                <time>{{ post.date | date:"%F" }} {{ post.date | date: "%a" }}. &raquo;</time>  
                 <a class="title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-
-                {% include category.html %}
-                {% include tag.html %}
+              </span>
             </li>
 
           {% endfor %}

@@ -6,8 +6,9 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
+my-name: 6xian
 title: 6xian
-brief-intro: Etude for learning
+brief-intro: keep moving
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://6xian.github.io" # the base hostname & protocol for your site
 
@@ -55,5 +56,5 @@ excerpt_separator: "\n\n\n\n"
 
 # paginate
 plugins: [jekyll-paginate]
-paginate: 6
+paginate: 20
 paginate_path: "page:num"

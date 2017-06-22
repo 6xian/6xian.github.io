@@ -21,15 +21,12 @@ type: page
         {% for tag in sortedtags %}
           <h2 id="{{ tag }}">{{ tag }}</h2>
           {% for post in site.tags[tag] %}
-            <li>
-                <time>
-                {{ post.date | date:"%F" }} {{ post.date | date: "%a" }}.
-                </time>
-                <a class="title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-
-                {% include category.html %}
-                {% include tag.html %}
-            </li>
+              <li>
+                 <span>
+                    <time>{{ post.date | date:"%F" }} {{ post.date | date: "%a" }}. &raquo;</time>  
+                    <a class="title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                 </span>
+              </li>
           {% endfor %}
         {% endfor %}
         </ul>
