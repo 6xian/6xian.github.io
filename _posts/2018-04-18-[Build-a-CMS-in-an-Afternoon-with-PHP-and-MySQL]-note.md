@@ -6,6 +6,7 @@ categories: PHP
 tags: PHP MySQL CMS
 author: 6xian or xian6
 ---
+
 * content
 {:toc}
 
@@ -72,7 +73,7 @@ MySQL 版本：5.5.53
 
 > Ready? Grab a cup of coffee, and let's get coding!
 
-![demo-web](attaches/demo-web.png)
+{{ "attaches/demo-web.png" | prepend: https://github.com/6xian/6xian.github.io/tree/master/images/posts/demo-web.png }}
 
 ## Step 1: Create the database
 
