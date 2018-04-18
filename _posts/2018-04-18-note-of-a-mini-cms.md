@@ -73,44 +73,41 @@ MySQL 版本：5.5.53
 
 > Ready? Grab a cup of coffee, and let's get coding!
 
-{{ "attaches/demo-web.png" | prepend: https://github.com/6xian/6xian.github.io/tree/master/images/posts/demo-web.png }}
+![demo-cms](https://github.com/6xian/6xian.github.io/tree/master/attaches/2018-04-18-note-of-a-mini-cms/demo-cms.png)
 
 ## Step 1: Create the database
 
 1. Run the mysql client program
 
-```sh
-C:\Users\Administrator                                                          
-λ mysql -u root -p                                                              
-Enter password: ****                                                            
-Welcome to the MySQL monitor.  Commands end with ; or \g.                       
-Your MySQL connection id is 2                                                   
-Server version: 5.5.53 MySQL Community Server (GPL)                             
-                                                                                
-Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.    
-                                                                                
-Oracle is a registered trademark of Oracle Corporation and/or its               
-affiliates. Other names may be trademarks of their respective                   
-owners.                                                                         
-                                                                                
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.  
-                                                                                
-mysql>                                                                          
-```
+   ```
+   C:\Users\Administrator
+   λ mysql -u root -p 
+   Enter password:  ****
+   
+   Welcome to the M ySQL monitor.  Commands end with ; or  \g.
+   Your MySQL conne ction id i s  2
+   Server version:  5.5.53 MyS QL  Community Server ( GPL)
+   Copyright (c) 20 00, 2016,  Or acle  and/or its aff iliates. All rights  reserved.
+   Oracle is a r egistered trademark of Oracle Corporation and/or  its 
+   affiliates. O ther  names may be trademarks of their  respective
+   owners. 
+   Type 'h elp;' or '\h' for help. Type '\c' to clear the current input  stateme nt.   
+   mysql> 
+   ```
 
 2. Create the database
 
 3. Quit the mysql client program
 
-```sh
-mysql> create database articlescms;
-Query OK, 1 row affected (0.02 sec)
-
-mysql> use articlescms;
-Database changed
-mysql> exit
-Bye
-```
+   ```
+   mysql> create database articlescms;
+   Query OK, 1 row affected (0.02 sec)
+ 
+    mysql> use articlescms;
+    Database changed
+    mysql> exit
+    Bye
+   ```
 
 ## Step 2: Create the articles database table
 
@@ -123,7 +120,7 @@ Bye
 
 articles 表的结构如下：
 
-```mysql
+```
 DROP TABLE IF EXISTS articles;
 CREATE TABLE articles
 (
@@ -146,7 +143,7 @@ id 为主键，类型为 smallint unsigned，值不能为空，值是唯一的�
 
 命令如下：
 
-```sh
+```
 d:\myProjects
 λ cd mini-cms-article\
 
@@ -198,7 +195,7 @@ mysql> desc articles;
 
 或者
 
-```sh
+```
 d:\myProjects\mini-cms-article
 λ mysql -u root -p articlescms < tables.sql
 Enter password: ****
@@ -297,7 +294,7 @@ Article 类是该 CMS 的核心，用于处理文章的所有操作，包括存�
 
    >  Returns an Article object matching the given article ID
    >
-   > `$sql = "SELECT *, UNIX_TIMESTAMP(publicationDate) AS publicationDate FROM articles WHERE id = :id";`
+   >  `$sql = "SELECT *, UNIX_TIMESTAMP(publicationDate) AS publicationDate FROM articles WHERE id = :id";`
 
    通过文章的 ID 属性来获取 Article 对象的其他属性，这里返回的是一个新的 Article 对象。
 
@@ -680,7 +677,7 @@ function homepage() {
 
    >   It simply removes the `username` session key.
    >
-   > `unset( $_SESSION['username'] );`
+   >   `unset( $_SESSION['username'] );`
 
 7. `newArticle()`
 
@@ -880,13 +877,13 @@ HTML 的代码不贴了，这里的前后端交互方式是有点落后吗？比
 
 `htmlspecialchars()` 函数，会将特殊字符转换为 HTML 实体，某类字符在 HTML 中有特殊用处，如需保持原意，需要用 HTML 实体来表达。 该函数会返回字符转义后的表达。比如一些字符转义后的值如下表：
 
-| 字  符 | 替换后 |
-| :----: | :-------- |
-| `&` (& 符号)   | `&amp;` |
-| `"` (双引号)   | `&quot;`，除非设置了 **ENT_NOQUOTES** |
-| `'` (单引号)   | 设置了 **ENT_QUOTES** 后， `&#039;` (如果是 **ENT_HTML401**) ，或者 `&apos;` (如果是 **ENT_XML1**、         **ENT_XHTML** 或 **ENT_HTML5**)。 |
-| `<` (小于)     | `&lt;` |
-| `>` (大于)     | `&gt;` |
+|    字  符    | 替换后                                      |
+| :--------: | :--------------------------------------- |
+| `&` (& 符号) | `&amp;`                                  |
+| `"` (双引号)  | `&quot;`，除非设置了 **ENT_NOQUOTES**          |
+| `'` (单引号)  | 设置了 **ENT_QUOTES** 后， `&#039;` (如果是 **ENT_HTML401**) ，或者 `&apos;` (如果是 **ENT_XML1**、         **ENT_XHTML** 或 **ENT_HTML5**)。 |
+|  `<` (小于)  | `&lt;`                                   |
+|  `>` (大于)  | `&gt;`                                   |
 
 `htmlspecialchars()` 使得 HTML 之中的特殊字符被正确的编码，从而不会被使用者在页面注入 HTML 标签或者 Javascript 代码。
 
