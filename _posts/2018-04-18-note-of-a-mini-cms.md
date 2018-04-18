@@ -73,7 +73,7 @@ MySQL 版本：5.5.53
 
 > Ready? Grab a cup of coffee, and let's get coding!
 
-![demo-cms](https://github.com/6xian/6xian.github.io/blob/master/attaches/2018-04-18-note-of-a-mini-cms/demo-cms.png)
+![demo-cms](https://github.com/6xian/6xian.github.io/blob/master/attaches/2018-04-18-note-of-a-mini-cms/demo-cms.jpg)
 
 ## Step 1: Create the database
 
