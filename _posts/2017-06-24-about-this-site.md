@@ -119,13 +119,47 @@ author: 6xian
 
 另外，建议所有博客文档都统一放在 `_posts` 目录下，方便管理。jekyll 会把所有存在 YAML 头信息的文件生成静态页面，所以可以在根目录下放一个 index.md 文件，但是在根目录下不能同时有 index.md 和 index.html. 不然 jekyll 不会解析，站点主页也就没有了。
 
-我觉得最好的写文档方式就是用 Markdown 了，比如在 Windows 下用 Sublime Text 写文档和代码, 预览的话，给 Chrome 装一个 Markdown 插件就好了。 文章写好了后，在站点目录下运行 `jekyll serve` 或者 `jekyll serve --watch ( --wath 参数表示 jekyll 会监测文档的变化，自动生成页面)` , 生成静态页面并在本地预览，发布的话，运行：
+我觉得最好的写文档方式就是用 Markdown 了，比如在 Windows 下用 Sublime Text 写文档和代码, 预览的话，给 Chrome 装一个 Markdown 插件就好了。 文章写好了后，在站点目录下运行 
+
+`jekyll serve` 
+
+或者 
+
+`jekyll serve --watch ( --wath 参数表示 jekyll 会监测文档的变化，自动生成页面)`
+
+生成静态页面并在本地预览。
+
+如果要加入图片的话，可以把图片集中放在一个地方，在文档中用下面这段代码来引用图片。
+
+```
+<figure>
+<a><img src="站点域名或项目名称/attaches/2017-06-24-about-this-site/1525073375257.png"></a>
+</figure>
+```
+
+站点域名或项目名称, 即把 `site.url` 用两个花括号括起来。
+
+下面这张图是我的测试。图片在本地的位置为 
+
+`6xian.github.io/attaches/2017-06-24-about-this-site/1525073375257.png`
+
+我在 `6xian.github.io` 项目下，新建了一个 `/attaches` 文件夹，集中存放所有文章的图片，每篇文章的图片单独放在以该文章名命名的文件夹下。
+
+因为本地文件提交到 GitHub 后，我们的域名也是 `6xian.github.io`，和我们的图片本地位置是一样的，所以用这种方式，既可以在本地预览时引用图片，文章发布后，在远程也能引用图片。
+
+<!-- ![1525073375257](../attaches/2017-06-24-about-this-site/1525073375257.png) -->
+
+<figure>
+<a><img src="{{site.url}}/attaches/2017-06-24-about-this-site/1525073375257.png"></a>
+</figure>
+
+最后是文章的发布，运行下面的命令之后，任何位置都可以访问你更新的文章了。
+
 ```
 $ git add --all
-$ git commit -m "Initial commit"
+$ git commit -m "some commit"
 $ git push -u origin master
 ```
-之后，任何位置都可以访问你更新的文章了。
 
 ## 4 主题修改
 
